@@ -1,0 +1,27 @@
+{>"layouts/master" /}
+
+{<body}
+<div class="container marketing">
+<form class="form-horizontal" role="form">
+    <h2 class="row">login</h2>
+    <div class="row col-xs-offset-1">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="Username" ng-model="Username" placeholder="Username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="Password" ng-model="Password" placeholder="Password">
+            </div>
+        </div>
+        <div class="col-sm-offset-2">
+            <button id="login" class="btn btn-default">Sign in</button>
+        </div>
+        
+    </div>
+</form>
+</div>
+{/body}

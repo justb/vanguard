@@ -1,0 +1,35 @@
+<div ng-init="count=[];showComponent=0">
+    <div class="btn-group col-sm-5">
+        <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown">
+        Select
+        <span class="caret"></span>
+    </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="" onclick="event.stopPropagation()">
+            <li role="presentation" ng-repeat="c in list" ng-mouseover="count[$index]=1" ng-mouseleave="count[$index]=0" ng-init="count[$index]=0"
+                ng-click="deleteC(c)">
+                <a role="menuitem" tabindex="-1" href=""><span ng-if="isSelected(c)" class="glyphicon glyphicon-ok"></span> {{c.name}}</a>
+            </li>
+        </ul>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="" style="margin-left:159px;margin-top:{{2+26*$index}}px;" ng-repeat="c in list"
+            ng-mouseover="count[$index]=1" ng-mouseleave="count[$index]=0" ng-show="count[$index]" onclick="event.stopPropagation()">
+            <li role="presentation" ng-repeat="v in c.version" ng-click="addComponent(c,v)">
+                <a role="menuitem" tabindex="-1" href=""><span ng-if="isSelectedVersion(c,v)" class="glyphicon glyphicon-ok"></span> {{v}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <button type="button" class="btn btn-default dropdown-toggle" ng-click="showComponent=showComponent+1">
+                View <span class="caret"></span>
+            </button>
+        <ul class="list-group" ng-show="showComponent%2" style="position:absolute;z-index:2000">
+            <li class="list-group-item">
+                <span>None</span>
+            </li>
+        </ul>
+        <ul class="list-group" ng-show="showComponent%2" style="z-index:2000;position:absolute">
+            <li class="list-group-item" ng-repeat="c in selected">
+                <span>{{c.name}} {{c.version}}&nbsp;&nbsp;<button ng-click="deleteComponent($index)" class="btn btn-default btn-xs" style="height:18px;line-height:1.2;">x</button></span>
+            </li>
+        </ul>
+    </div>
+</div>

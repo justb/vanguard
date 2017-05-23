@@ -1,0 +1,99 @@
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>First</h2>
+          <p>Fill in base info</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <h2>Second</h2>
+          <p>Choose frameworks</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <h2>Third</h2>
+          <p>Choose templates</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+      <!-- START THE FEATURETTES -->
+      
+      <hr class="featurette-divider">
+    <form role="form" ng-controller="IndexCtrl" >
+      <div class="row featurette">
+        <div class="col-md-6">
+          <h2 class="featurette-heading">First step.<span class="text-muted">Fill in your base info.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-6">
+            <div style="margin-top:140px;">
+          <div class="row" class="form-group"><label><span style="font-size:28px;">Description:</span></label><input type="text" class="form-control" ng-model="description"/></div>
+          <div class="row" class="form-group"><label><span style="font-size:28px;">Author:</span></label><input type="text" class="form-control" ng-model="author"/></div>
+            </div>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <div style="margin-top:140px;">
+          <div class="radio">
+            <div class="radio disabled">
+            <label>
+                <input type="radio" style="margin-top:36px;height:18px;width:18px;"" name="framework" id="framework" disabled checked >
+                <div>
+                <p><span style="font-weight:700;font-size:30px;">Kraken + Dust</span></p>
+                <p><span style="font-weight:700;font-size:30px;">AnuglarJS 1.x + Bootstrap + JQuery</span></p>
+                </div>
+            </label>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">Choose your framework.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Choose you template.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <div style="margin-top:140px;">
+          <div class="radio">
+            <div class="radio">
+            <label>
+                <input type="radio"  name="template" id="template_a" ng-value=true ng-model="template" ng-checked="true" style="margin-top:12px;height:18px;width:18px;">
+                <div>
+                <p><span style="font-weight:700;font-size:30px;">Acxiom Style</span></p>
+                
+                </div>
+            </label>
+            </div>
+            <div class="radio">
+            <label>
+                <input type="radio"  name="template" id="template_b" ng-value=false ng-model="template" style="margin-top:12px;height:18px;width:18px;">
+                <div>
+                <p><span style="font-weight:700;font-size:30px;">Vanguard Style</span></p>
+                
+                </div>
+            </label>
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="row" style="text-align:center;margin-top:100px;">
+        <button id="submit" class="btn btn-primary btn-lg" ng-click="submit()">Submit and Download</button>
+      </div>
+    
+      
+      
+</form>

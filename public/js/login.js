@@ -1,0 +1,16 @@
+$(function(){
+    $("#login").click(function(){
+        console.log("aaa");
+        $.ajax({
+            type:"post",
+            url:"http://localhost:8000/user/login/",
+            data:{'name':$("#Username").val(),'password':$("#Password").val()},
+            success:function(data){
+                console.log(data);
+                if(data){
+                    window.location="http://localhost:8000/#/index?id="+JSON.stringify(data);
+                }
+            }
+        })
+    })
+})

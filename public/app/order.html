@@ -1,0 +1,73 @@
+<form class="form-horizontal" role="form" ng-controller="OrderCtrl">
+    <h2 class="row">BaseInfo</h2>
+    <div class="row col-xs-offset-1">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" ng-model="order.baseinfo.name" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" ng-model="order.baseinfo.description" placeholder="Description">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Author</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="author" ng-model="order.baseinfo.author" placeholder="Author">
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <h2 class="row">Framework</h2>
+    <div class="row col-xs-offset-1">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Framework</label>
+            <div  class="col-sm-10">
+                <select class="form-control" ng-model="order.framework.name">
+                    <option ng-repeat="b in frameworks" ng-selected="order.framework.name == b.name">{{b.name}}</option>  
+                </select>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <h2 class="row">Component</h2>
+    <div class="row col-xs-offset-1">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Component</label>
+            <!--<div class="col-sm-10"  ng-dropdown-multiselect="" options="components" selected-model="order.component" extra-settings="settings"></div>-->
+            <mydropdown list='components' selected='order.component'></mydropdown> 
+        </div>
+    </div>
+    <hr/>
+    <h2 class="row">Module</h2>
+    <div class="row col-xs-offset-1">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Module</label>
+            <!--<div class="col-sm-10"  ng-dropdown-multiselect="" options="modules" selected-model="order.module" extra-settings="settings"></div>-->
+            <mydropdown list='modules' selected='order.module'></mydropdown> 
+        </div>
+    </div>
+    <hr/>
+    <h2 class="row">Template</h2>
+    <div class="row col-xs-offset-1">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Template</label>
+            <div class="col-sm-10">
+                 <select class="form-control" ng-model="order.template.name">
+                    <option ng-repeat="b in templates" ng-selected="order.template.name == b.name">{{b.name}}</option>  
+                </select>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row" style="margin-top:50px;text-align:center;">
+        <button class="btn btn-lg btn-default" ng-click="submit()">Submit</button>
+    </div>
+    
+</form>
+
+
+

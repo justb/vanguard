@@ -1,0 +1,25 @@
+<div ng-controller="MyorderCtrl">
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Framework</th>
+        <th>Template</th>
+        <th>CreateTime</th>
+        <th>Action</th>
+    </tr>
+    <tr ng-repeat="o in order track by $index">
+        <td>{{$index+1}}</td>
+        <td>{{o.baseinfo.name}}</td>
+        <td>{{o.framework}}</td>
+        <td>{{o.template}}</td>
+        <td>{{o.createtime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        <td>
+            <button class="btn btn-default" ui-sref="detail({id:o.id})">Edit</button>
+            <button class="btn btn-default" ng-click="cancel(o.id)">Cancel</button>
+            <button class="btn btn-default" ng-click="download(o.id)">Download</button>
+        </td>
+        
+    </tr>
+</table>
+</div>

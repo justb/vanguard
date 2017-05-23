@@ -1,0 +1,5 @@
+<ul ng-mouseover="count[$index]=1" ng-mouseleave="count[$index]=0" ng-show="count[$index]" ng-repeat="c in list" onclick="event.stopPropagation()">
+    <li ng-repeat="v in list" ng-click="addComponent(c,v)">
+        <a role="menuitem" tabindex="-1" href=""><span ng-if="isSelectedVersion(c,v)" class="glyphicon glyphicon-ok"></span> {{v}}</a>
+    </li>
+</ul>
