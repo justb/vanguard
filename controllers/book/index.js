@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
-var book = require('../../models/module').book;
+var book = require('../../models/module').order;
 mongoose.connect('mongodb://localhost/hello');
-/*hompage*/
 
 
 
@@ -15,13 +14,8 @@ module.exports = function(router) {
         })
     });
 
-    router.get('/add', function(req, res) {
-        var newBook=new book({
-            id:parseInt(req.query.id),
-            name:req.query.name,
-            price:req.query.price,
-            date:req.query.date
-        });
+    router.post('/add', function(req, res) {
+        var newBook=new book(req.body.order);
         newBook.save(function(err,doc){
             if(err){
                 res.json(err);

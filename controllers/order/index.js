@@ -53,4 +53,15 @@ module.exports = function(router) {
 		});
 		
 	});
+	router.post('/download', function(req, res) {
+		
+		orderService().addOrder(req.body.order,function(err,results){
+             if (err) {
+				return res.json(err);
+			}
+			//返回json体
+			res.json(results);
+         });
+		
+	});
 }

@@ -29,6 +29,14 @@ myapp.config(function($stateProvider,$urlRouterProvider){
                 }
             }
         })
+        .state('webpack', {
+            url: "/webpack",
+            views:{
+                'content':{
+                    templateUrl: '/app/webpack.html',
+                }
+            }
+        })
         .state('myorder', {
             url: "/myorder",
             views:{
@@ -59,6 +67,12 @@ myapp.run(function($rootScope,$http,$state) {
             this.$apply(fn);
         }
     };
+    $rootScope.$on('$stateChangeStart',
+
+            function(event, toState, toParams, fromState, fromParams){
+
+                NProgress.start();
+        })
 
     $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
         // $rootScope.isActive= [1,0,0,0];
@@ -68,8 +82,9 @@ myapp.run(function($rootScope,$http,$state) {
         //     });
         //     $scope.isActive[id]=1;
         // }
+        NProgress.done();
         console.log(toState)
-        if(toState.name=='login'){// 如果是进入登录界面则允许
+        if(toState.name=='webpack'){// 如果是进入登录界面则允许
            $rootScope.isActive= [0,0,1,0];
         }
         if(toState.name=='order'){// 如果是进入登录界面则允许

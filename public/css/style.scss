@@ -1,10 +1,19 @@
-$color1:#5a5a5a;
+$color1:#563d7c;
+$color2:#3d2b58;
 
 
 body{
   padding-bottom: 40px;
-  color: $color1;
   padding-top: 91px;
+  color: $color1 ;
+}
+
+a{
+  color: $color1 ;
+}
+
+a:active, a:focus, a:hover{
+  color: $color1 ;
 }
 
 nav{
@@ -140,7 +149,42 @@ transform:  translateY(-50%);
 
 @media (min-width: 992px) {
   .featurette-heading {
-    margin-top: 120px;
+    margin-top: 30px;
   }
+}
+
+.img-small{
+  width: 50px;
+}
+
+.btn-outline {
+    color: $color1;
+    background-color: transparent;
+    border-color: $color1;
+}
+
+.btn-outline:active, .btn-outline:focus, .btn-outline:hover {
+    color: #fff;
+    background-color: $color1;
+    border-color: $color1;
+}
+
+.selected{
+    color: #fff;
+    background-color: $color1;
+    border-color: $color1;
+}
+
+.form-control{
+  color: $color1 !important;
+  border: 1px solid $color1;
+}
+
+.form-control:focus{
+  border-color: $color2;
+}
+
+.carousel-caption{
+  padding-bottom: 100px;
 }
 

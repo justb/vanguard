@@ -1,121 +1,63 @@
 var myapp=require('../app.js');
 myapp.controller('OrderCtrl',function($http,$scope,$rootScope, $state) {
-            $scope.showComponent=0;
-            $scope.count=[];
             $scope.order={};
-            $scope.order.component=[];
-            $scope.order.module=[];
             $scope.order.baseinfo={};
-            $scope.settings={
-                displayProp: 'name', 
-                idProp: 'name',
-                buttonDefaultText:"Select Modules"
-            };
-            $scope.frameworks=[{"name":"Kraken"}];
-            $scope.templates=[{"name":"Acxiom Style"},{"name":"Vanguard Style"}];
-            $http({
-                method: 'GET',
-                url: 'module/',
-                data: {
-                }
-            }).success(function(data, status, headers, config) {
-                $scope.modules=data;
-                data.forEach(function(v,i){
-                    $scope.modules[i].version=v.version.split(",");
-                })
-            }).error(function(data, status, headers, config) {
-                
-            });
-            $http({
-                method: 'GET',
-                url: 'component/',
-                data: {
-                }
-            }).success(function(data, status, headers, config) {
-                $scope.components=data;
-                data.forEach(function(v,i){
-                    $scope.components[i].version=v.version.split(",");
-                    console.log($scope.components[i]);
-                })
-            }).error(function(data, status, headers, config) {
-                
-            });
-            $scope.addComponent=function(c,v){
-                var flag=0
-                $scope.order.component.forEach(function(value,index){
-                    if(value.name==c.name){
-                        value.version=v;
-                        flag=1;
-                    }
-                });
-                if(flag==0){
-                    $scope.order.component.push({'name':c.name,'version':v});
-                }
-                
-            }
-            $scope.deleteComponent=function(i){
-                $scope.order.component.splice(i,1);
-            }
-            $scope.addModule=function(m,v){
-                var flag=0
-                $scope.order.module.forEach(function(value,index){
-                    if(value.name==m.name){
-                        value.version=v;
-                        flag=1;
-                    }
-                });
-                if(flag==0){
-                    $scope.order.module.push({'name':m.name,'version':v});
-                }
-                
-            }
-            $scope.deleteModule=function(i){
-                $scope.order.module.splice(i,1);
-            }
-            $scope.isSelected=function(c,v){
-                $scope.order.component.forEach(function(value,index){
-                    if(value==c){
-                        return true;
-                    }
-                })
-            }
+            $scope.order.ui='';
+            $scope.order.frontend='';
+            $scope.order.backend='';
+            $scope.uis=[{id:1,name:'bootstrap',display:'Bootstrap'},{id:2,name:'flatui',display:'Flat UI'}];
+            $scope.frontends=[{id:1,name:'angular',display:'AngularJs'},{id:2,name:'vue',display:'Vue'},{id:3,name:'react',display:'React'}];
+            $scope.backends=[{id:1,name:'express',display:'Express'},{id:2,name:'koa',display:'Koa.js'}];
+            
+            $scope.disabled=false;
             $scope.submit=function(){
-
+                $scope.order.createtime=new Date();
                 console.log($scope.order);
-                if($rootScope.user){
-                        $http({
-                            method: 'post',
-                            url: 'order/add',
-                            data: {
-                                order:$scope.order
-                            }
-                        }).success(function(data, status, headers, config) {
-                            // $http({
-                            //     method: 'POST',
-                            //     url: 'http://localhost:8000/generate/',
-                            //     data: {
-                            //         order:$scope.order
-                            //     }
-                            // }).success(function(data, status, headers, config) {
-                                
-                            // }).error(function(data, status, headers, config) {
-                                
-                            // });
-                            $('#SubmitSuccess').modal('show');
-                        }).error(function(data, status, headers, config) {
-                            
-                        });
-                }else{
-                    $('#myModal').modal('show');
-                }
+                $('#submit').attr("disabled","disabled");
+                NProgress.start();
+                $http({
+                    method: 'post',
+                    url: 'generate/download',
+                    data: {
+                        order:$scope.order
+                    }
+                }).success(function(data, status, headers, config) {
+                    NProgress.done();
+                    setTimeout(function(){
+                         $('#submit').removeAttr("disabled"); 
+                    },1000);
+                   
+                    // $http({
+                    //     method: 'POST',
+                    //     url: 'http://localhost:8000/generate/',
+                    //     data: {
+                    //         order:$scope.order
+                    //     }
+                    // }).success(function(data, status, headers, config) {
+                        
+                    // }).error(function(data, status, headers, config) {
+                        
+                    // });
+                    // $('#SubmitSuccess').modal('show');
+                    // console.log(data, status, headers, config);
+                    // var a=document.createElement('a');
+                    // a.href=data.substring(1,data.length-1);
+                    // document.body.appendChild(a);
+                    // a.click();
+                    // document.body.removeChild(a);
+                    // window.open(data.substring(1,data.length-1));
+                    // window.open('generate/download/'+id);
+                    var iframe = document.createElement('iframe');
+                    iframe.src = data.substring(1,data.length-1);
+                    iframe.style.display = "none";
+                    document.body.appendChild(iframe);
+                }).error(function(data, status, headers, config) {
+                    
+                });
+        
                  
             }
-            $scope.toLogin=function(){
-                $('#myModal').modal('hide');
-                 $state.go('login', null, {
-                        reload: true
-                    });
-            }
+            
            
         
     

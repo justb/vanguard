@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <!--<link href="app.less" type="text/css" rel="stylesheet/less"> -->
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="components/nprogress/nprogress.css">
   <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body ng-controller="UserCtrl">
@@ -17,6 +18,7 @@
   <!--<script src="components/less.js/dist/less-1.6.2.js" data-concat="false"></script>-->
   <script src="components/jquery/jquery.js"></script>
   <script src="components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="components/nprogress/nprogress.js"></script>
   <script src="components/underscore/underscore.js"></script>
   <script src="components/moment/moment.js"></script>
   <script src="components/angular/angular.js"></script>
@@ -47,7 +49,7 @@
           <ul class="nav navbar-nav">
             <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[0]]" ng-click="isClick(0)"><a ui-sref="index">Home</a></li>
             <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[1]]" ng-click="isClick(1)"><a ui-sref="order">Order</a></li>
-            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[2]]" ng-click="isClick(2)" ng-if='!$root.user'><a ui-sref="login">Login</a></li>
+            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[2]]" ng-click="isClick(2)"><a ui-sref="webpack">Webpack</a></li>
             <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[3]]" ng-click="isClick(3)" ng-if='$root.user'><a ui-sref="myorder">My Order</a></li>
             <li ng-if='$root.user' class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown">{{$root.user.name}}<span class="caret"></span></a>
@@ -56,7 +58,7 @@
               </ul>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <!--<ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-right" role="form">
               <div class="form-group">
                 <input type="text" placeholder="Email" class="form-control">
@@ -64,9 +66,9 @@
               <div class="form-group">
                 <input type="password" placeholder="Password" class="form-control">
               </div>
-              <button type="submit" class="btn btn-success">Sign in</button>
+              <button type="submit" class="btn btn-outline">Sign in</button>
             </form>
-          </ul>
+          </ul>-->
         </div><!--/.nav-collapse -->
       </div>
     </nav>
