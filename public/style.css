@@ -12,6 +12,9 @@ a:active, a:focus, a:hover {
 nav {
   margin-bottom: 20px; }
 
+.navbar a {
+  color: #563d7c !important; }
+
 .vetical-center {
   position: absolute;
   top: 50%;

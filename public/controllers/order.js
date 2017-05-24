@@ -11,6 +11,13 @@ myapp.controller('OrderCtrl',function($http,$scope,$rootScope, $state) {
             
             $scope.disabled=false;
             $scope.submit=function(){
+                if($scope.order.baseinfo.name&&$scope.order.baseinfo.description&&$scope.order.baseinfo.author&&$scope.order.ui&&
+                $scope.order.frontend&&$scope.order.backend){
+
+                }else{
+                    $('#SubmitSuccess').modal('show');
+                    return;
+                }
                 $scope.order.createtime=new Date();
                 console.log($scope.order);
                 $('#submit').attr("disabled","disabled");

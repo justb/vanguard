@@ -43,13 +43,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Vanguard</a>
+          <a class="navbar-brand" href="#" style="font-weight: 500;">Vanguard</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[0]]" ng-click="isClick(0)"><a ui-sref="index">Home</a></li>
-            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[1]]" ng-click="isClick(1)"><a ui-sref="order">Order</a></li>
-            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[2]]" ng-click="isClick(2)"><a ui-sref="webpack">Webpack</a></li>
+            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[0]]" ng-click="isClick(0)"><a ui-sref="index">主页</a></li>
+            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[1]]" ng-click="isClick(1)"><a ui-sref="order">创建框架</a></li>
+            <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[2]]" ng-click="isClick(2)"><a ui-sref="webpack">Webpack介绍</a></li>
             <li ng-class="{1: 'active', 0: 'inactive'}[$root.isActive[3]]" ng-click="isClick(3)" ng-if='$root.user'><a ui-sref="myorder">My Order</a></li>
             <li ng-if='$root.user' class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown">{{$root.user.name}}<span class="caret"></span></a>
@@ -136,18 +136,18 @@
                             &times;
                         </button>
                         <h4 class="modal-title" id="SubmitSuccessLabel">
-                            Warning
+                            警告
                         </h4>
                     </div>
                     <div class="modal-body">
-                        Submitted successfully!
+                        <h4>请将页面上的所有信息填写完整 ！</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default"
-                                data-dismiss="modal">Close
+                        <button type="button" class="btn btn-outline"
+                                data-dismiss="modal">关闭
                         </button>
-                        <a role="button" class="btn btn-primary" onclick=" $('#SubmitSuccess').modal('hide');">
-                            Submit 
+                        <a role="button" class="btn btn-outline" onclick=" $('#SubmitSuccess').modal('hide');">
+                            确认
                         </a>
                     </div>
                 </div><!-- /.modal-content -->
